@@ -24,7 +24,7 @@ export interface AiConfig {
   model: string;
 }
 
-export function readAiConfig(env: NodeJS.ProcessEnv = process.env): AiConfig {
+export function readAiConfig(env: Record<string, string | undefined> = process.env): AiConfig {
   return {
     apiKey: env.OPENAI_API_KEY?.trim() || undefined,
     baseUrl: (env.OPENAI_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/+$/, ""),

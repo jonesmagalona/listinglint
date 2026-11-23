@@ -56,9 +56,9 @@ describe("AI request and config", () => {
   });
 
   it("reads config from env with safe defaults and no trailing slash", () => {
-    const cfg = readAiConfig({ OPENAI_API_KEY: " k ", OPENAI_BASE_URL: "https://example.test/v1/" } as NodeJS.ProcessEnv);
+    const cfg = readAiConfig({ OPENAI_API_KEY: " k ", OPENAI_BASE_URL: "https://example.test/v1/" });
     expect(cfg).toEqual({ apiKey: "k", baseUrl: "https://example.test/v1", model: "gpt-4o-mini" });
-    expect(readAiConfig({} as NodeJS.ProcessEnv).apiKey).toBeUndefined();
+    expect(readAiConfig({}).apiKey).toBeUndefined();
   });
 
   it("maps upstream HTTP errors to user-facing codes", () => {
