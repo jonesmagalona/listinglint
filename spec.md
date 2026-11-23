@@ -111,4 +111,4 @@ Status: any error → `blocked`; else any warning → `needs_review`; else `read
 | 0.1 | 2026-11-23 | Jones with AI assistant (Claude) | First spec: inputs, outputs, AI behaviour, rules, errors, acceptance criteria |
 | 0.2 | 2026-11-23 | AI review (Claude) against the course brief | Found AC8 (prompt injection) was covered only by a test of the request format, which does not prove the outcome is unaffected. Added a rules test showing identical status and score when the AI's text contains approval instructions. |
 | 0.3 | TODO | TODO: peer or instructor reviewer name | TODO: changes made after human review |
-| 0.4 | TODO | Jones | TODO: fixes found during live testing (one row per fix: what you saw, what you changed) |
+| 0.4 | 2026-11-23 | Christopher Jones Mante Magalona | Live test: off-topic input returned AI-502 because the model sent buyerSummary as null; schema now accepts null for buyerSummary, ambiguities and priceOnRequest; added unit test. |
