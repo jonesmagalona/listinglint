@@ -5,6 +5,7 @@ AI-assisted quality checker for used-equipment marketplace listings.
 Paste a seller's messy listing (English, or mixed with Tagalog or Cebuano). An LLM extracts the make, model, year, hours, price and location through a forced tool call. Deterministic, unit-tested rules then check for missing fields, implausible numbers, unsupported currencies, out-of-range prices and duplicates, decide whether the listing is **Ready**, **Needs review** or **Blocked**, and draft the questions to send back to the seller.
 
 - **Live app:** https://listinglint.vercel.app
+- **Demo video (2 min):** https://youtu.be/jLHwm8oc5C0
 - **Health check:** https://listinglint.vercel.app/api/health
 
 > Course project for the AIM Postgraduate Certificate in Generative AI and Agentic AI (Week 4, Graded Mini Project 4.2). All data in `data/` is made up.

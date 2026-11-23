@@ -5,21 +5,21 @@ Maps every item in "Week 4 – Graded Assignment 4.2: AI-Powered Web Application
 ## Project constraints
 | Requirement | Evidence | Status |
 |---|---|---|
-| Solve a real problem for a specific user | `docs/01-idea-validation.md` Steps 1 to 2 (listing reviewers and the marketplaces that employ them) | ✅ (user tests 🟡) |
+| Solve a real problem for a specific user | `docs/01-idea-validation.md` Steps 1 to 2 (listing reviewers and the marketplaces that employ them); Step 6 user tests | ✅ |
 | At least one AI capability | Extraction and classification with a forced tool call, `src/lib/ai.ts` | ✅ |
 | Usable web UI | `src/components/ListingChecker.tsx` | ✅ |
-| Deployed to a live URL | Vercel, link in `README.md` | 🟡 |
-| Public GitHub repo | `gh repo create ... --public` | 🟡 |
-| GitHub Actions workflow | `.github/workflows/ci.yml` | ✅ (green run 🟡) |
+| Deployed to a live URL | Vercel: https://listinglint.vercel.app, linked in `README.md` | ✅ |
+| Public GitHub repo | https://github.com/jonesmagalona/listinglint | ✅ |
+| GitHub Actions workflow | `.github/workflows/ci.yml` (green runs on `main`) | ✅ |
 | No hardcoded secrets | `.env.example`, `.gitignore`, `scripts/check-secrets.sh` runs in CI | ✅ |
-| Proper README | `README.md` | ✅ (links 🟡) |
+| Proper README | `README.md` | ✅ |
 
 ## Phase 1: Validate and define
 | Requirement | Evidence | Status |
 |---|---|---|
 | All 7 idea validation steps | `docs/01-idea-validation.md`, following the Week 4A cheat sheet: problem, target customer, market size, competition, edge, cheap test, stress test | ✅ |
-| User, problem and market evidence | Step 1 problem; Step 2 customer; Step 3 cited market and fraud sources; Step 6 cheap-test results table | Market ✅, test results 🟡 |
-| Differentiating angle | Step 5: "AI extracts, code decides", why you, why now | ✅ (why you 🟡) |
+| User, problem and market evidence | Step 1 problem; Step 2 customer; Step 3 cited market and fraud sources; Step 6 cheap-test results table | ✅ |
+| Differentiating angle | Step 5: "AI extracts, code decides", why you, why now | ✅ |
 | 1-page PRD | `docs/02-prd.md` | ✅ |
 
 ## Phase 2: Spec and architecture
@@ -29,33 +29,33 @@ Maps every item in "Week 4 – Graded Assignment 4.2: AI-Powered Web Application
 | spec.md | `spec.md` (inputs, outputs, AI behaviour, constraints and errors, acceptance criteria) | ✅ |
 | CLAUDE.md or agents.md | `CLAUDE.md` | ✅ |
 | .cursorrules | `.cursorrules` | ✅ |
-| Revise the spec after review | `spec.md` revision history: v0.2 AI review and v0.3 live-test revision done; v0.4 human review by Paul (developer and QA professional) planned | ✅ / 🟡 |
+| Revise the spec after review | `spec.md` revision history: v0.2 AI review, v0.3 live-test revision, v0.4 human review by Paul (developer and QA professional) | ✅ |
 
 ## Phase 3: Build
 | Requirement | Evidence | Status |
 |---|---|---|
 | Scaffold the application | Next.js 14 + Tailwind + TypeScript | ✅ |
 | Core AI feature | `POST /api/check` | ✅ |
-| At least 5 meaningful commits | 7 planned commits in NEXT-STEPS step 7, plus live-test fixes | 🟡 |
-| At least 3 unit tests | 36 tests in `tests/` | ✅ |
+| At least 5 meaningful commits | Conventional Commits on `main`, including live-test fixes | ✅ |
+| At least 3 unit tests | 37 tests in `tests/` | ✅ |
 | Check secrets and input validation | Secret scan; zod for input and AI output; rate limit | ✅ |
 
 ## Phase 4: Deploy
 | Requirement | Evidence | Status |
 |---|---|---|
 | Configure GitHub Actions | `.github/workflows/ci.yml` | ✅ |
-| Deploy to a live host | Vercel | 🟡 |
-| Set environment variables | Vercel: OPENAI_API_KEY, OPENAI_BASE_URL, OPENAI_MODEL | 🟡 |
-| Test the live app | Four example buttons, `/api/health`; record fixes in `spec.md` | 🟡 |
-| Basic monitoring or analytics | Vercel Web Analytics, `/api/health`, structured JSON logs | ✅ (enable in Vercel 🟡) |
+| Deploy to a live host | Vercel | ✅ |
+| Set environment variables | Vercel: OPENAI_API_KEY, OPENAI_BASE_URL, OPENAI_MODEL | ✅ |
+| Test the live app | Four example buttons, `/api/health`; fixes recorded in `spec.md` | ✅ |
+| Basic monitoring or analytics | Vercel Web Analytics, `/api/health`, structured JSON logs | ✅ |
 
 ## Phase 5: Document and reflect
 | Requirement | Evidence | Status |
 |---|---|---|
-| Complete README | `README.md` | ✅ (links 🟡) |
-| 2-minute demo | Script in `docs/demo-script.md` | 🟡 |
-| 1-page reflection | Outline in `docs/reflection.md` | 🟡 |
-| One GitHub issue for v2 | Text in `docs/v2-issue.md`; create with `gh issue create` | 🟡 |
+| Complete README | `README.md` | ✅ |
+| 2-minute demo | https://youtu.be/jLHwm8oc5C0 (script in `docs/demo-script.md`) | ✅ |
+| 1-page reflection | `docs/reflection.md` | ✅ |
+| One GitHub issue for v2 | Issue #1: https://github.com/jonesmagalona/listinglint/issues/1 (text in `docs/v2-issue.md`) | ✅ |
 
 ## What not to build
 | Avoid | How ListingLint avoids it |

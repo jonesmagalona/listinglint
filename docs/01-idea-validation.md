@@ -34,7 +34,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 | **Paying customer** | Owners or operations managers of small and mid-sized used-equipment marketplaces and dealer groups (for example 2 to 20 reviewers), starting in the Philippines and Asia-Pacific | Reviewer hours, slow time to publish, reputational risk from bad or fraudulent listings | Direct outreach, equipment trade events, marketplace partner programs |
 | **Beneficiary** | Sellers | One clear list of questions instead of several emails | Through the marketplace |
 
-**Why they would pay (Assumption):** a reviewer's time and a fraudulent or duplicate listing both cost more than a per-check or monthly fee. TODO (evidence): ask in the cheap test (Step 6) how long a messy listing takes to fix and whether the team would pay, and roughly how much.
+**Why they would pay (Assumption):** a reviewer's time and a fraudulent or duplicate listing both cost more than a per-check or monthly fee. Early evidence: one QA tester said a team would pay about US$100 per year if the tool could check listings in bulk (Step 6).
 
 **Out of scope as customers:** buyers browsing listings, and very large platforms with in-house data teams.
 
@@ -63,7 +63,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 | Structured seller forms with required fields | Forces some fields | Sellers still put key details in free-text notes; many listings arrive by email or chat; no plausibility or duplicate checks |
 | Spreadsheet formulas or simple scripts | Deterministic and cheap | Cannot read free text or mixed languages |
 | General chatbots (for example ChatGPT) | Read messy text well | Results vary run to run; no access to the marketplace's make list or existing listings; can be talked into "approving" by text inside a listing; no audit trail |
-| Platform-built tools at large marketplaces | Integrated with their data | Built in-house for their own use, not available to small and mid-sized marketplaces (Assumption: TODO confirm by asking testers what tools they have seen) |
+| Platform-built tools at large marketplaces | Integrated with their data | Built in-house for their own use, not available to small and mid-sized marketplaces (Assumption, not yet confirmed with testers) |
 
 **The gap:** a lightweight tool that reads messy, mixed-language listings like a chatbot, but checks them like a rules engine against the marketplace's own reference data, and produces an auditable decision.
 
@@ -105,17 +105,15 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 | Willingness to pay | At least 2 testers name a price or say their team would pay |
 | Accuracy | At least 90% of extracted fields correct across the test listings |
 
-**Results:** TODO (evidence). Record anonymised notes below. Do not invent quotes or numbers.
+**Results:**
 
-| # | Who (role, anonymised) | Date | Manual time | ListingLint time | Would use? | Would pay? (amount) | Key notes or bugs |
+| # | Who (role) | Date | Manual time | ListingLint time | Would use? | Would pay? | Key notes |
 |---|---|---|---|---|---|---|---|
-| 1 | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| 2 | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| 3 | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| 4 (optional) | | | | | | | |
-| 5 (optional) | | | | | | | |
+| 1 | Sam, QA | 2026-11-23 | About 2 minutes per listing | Not measured | Yes, at work | Yes: about US$100 per year, if it can check bulk listings in one go | Results looked correct; it correctly identified a listing that was not equipment |
+| 2 | Paul, developer and QA professional (also spec reviewer) | 2026-11-23 | Not measured | Not measured | Not asked | Not asked | Tested non-equipment items (washing machine, scooter): both correctly rejected. Mixed text (washing machine plus heavy equipment): only the equipment was extracted. No defects reported. Feedback relayed by the author. |
+| 3 | Author, live test of the deployed app | 2026-11-23 | n/a | n/a | n/a | n/a | Off-topic input returned AI-502; fixed and recorded in spec.md revision history |
 
-**Summary:** TODO (evidence). Two or three sentences: which pass criteria were met, and what changed in the product because of the test.
+**Summary:** Two of the planned 3 to 5 testers took part, so this is an early signal, not proof. Against the pass criteria: the problem was confirmed by a QA tester; 1 of 1 tester asked said they would use it at work; time saved was not measured (Sam estimated about 2 minutes to clean one listing by hand, which suggests the value is in volume rather than single listings); 1 tester named a price (about US$100 per year), conditional on bulk checking; no extraction errors were reported, including on non-equipment and mixed inputs, though the 90% accuracy measure on a labelled set was not run. The main change: bulk CSV checking became the first v2 priority (GitHub issue #1).
 
 ## Step 7. Stress-Test the Idea
 *Goal: the risks are known and manageable, or a fatal flaw shows up before you invest.*
@@ -124,7 +122,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 |---|---|---|---|
 | AI extracts a wrong value | Medium / medium | Every extracted field is shown; rules flag implausible values; a person reviews before publishing; temperature 0 | No |
 | Prompt injection inside a listing | Medium / high | Listing wrapped as data; forced tool call; schema validation; decisions only in code; unit test proves approval text has no effect | No |
-| Customers won't pay, or prefer a free chatbot | Unknown / high | Cheap test (Step 6) asks directly; edge is reliability and their own reference data, which a chatbot lacks | **Possibly. This is the key unknown to test** |
+| Customers won't pay, or prefer a free chatbot | Unknown / high | Cheap test (Step 6) asks directly; edge is reliability and their own reference data, which a chatbot lacks. Early signal: one QA tester named about US$100 per year, conditional on bulk checking (Step 6). Sample too small to confirm. | **Possibly. This is the key unknown to test** |
 | Reference data is wrong or out of date (makes, price bands) | High in the demo / medium | Demo data is clearly labelled as made up; production would use the customer's own catalogue and a licensed price source | No |
 | AI cost and rate limits at volume | Low / medium | One small-model call per check; in-app rate limit; v2 batching | No |
 | Privacy (seller contact details in pasted text) | Medium / medium | UI warns not to paste personal details; listing text is not logged | No |
@@ -132,4 +130,4 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 
 **Fatal flaw check:** no technical fatal flaw found; the build works and the rules are tested. The open question is commercial: whether small marketplaces will pay rather than keep doing it by hand. Step 6 tests this directly.
 
-**Decision:** TODO (evidence). After the cheap test, state go, pivot or stop, and why. For example: "Go: 4 of 5 testers would use it and 2 named a price" or "Pivot: testers cared more about duplicate detection than extraction".
+**Decision:** Go, with a change in priority. Continue developing ListingLint, but make bulk CSV checking the first v2 feature, because the only price offered depended on it. Before investing further, test with at least 3 more listing reviewers and measure time per listing with and without the tool.

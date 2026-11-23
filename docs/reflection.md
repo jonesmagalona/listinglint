@@ -1,28 +1,17 @@
-# Reflection (1 page): outline to complete in your own words
+# Reflection: ListingLint
 
-> This is an outline, not a finished reflection. Replace every TODO with what actually happened to you. Keep it to one page. Be honest about how AI was used: the course expects AI-assisted building, but the reflection must be yours.
+Christopher Jones Mante Magalona · AIM Graded Mini Project 4.2
 
-## What I built
-ListingLint, a web app that turns messy used-equipment listings into structured fields with an LLM, then uses unit-tested rules to decide whether the listing is ready, needs review, or is blocked, and drafts the questions for the seller. Live at TODO (URL).
+ListingLint is a web application that checks used-equipment listings before publication. A reviewer pastes listing text, including Taglish, and an LLM extracts the make, model, year, operating hours, price, and location. Rules written in code then check for missing information, implausible values, unusual prices, and possible duplicates. The application assigns a status of Ready, Needs review, or Blocked and drafts clarification questions for the seller. I chose this problem based on approximately 10 years of QA experience, where incomplete and inconsistent listing information creates additional review work. The application is available at https://listinglint.vercel.app, and the demonstration is at https://youtu.be/jLHwm8oc5C0.
 
-## How I used AI
-- TODO: which tools (for example Claude for planning, code and document drafts; the course's Vocareum OpenAI endpoint inside the app).
-- TODO: what you decided yourself (the idea and user, which rules matter, what to cut).
-- TODO: what you reviewed, changed or rejected in the AI's output, with one concrete example.
+I used Claude as an engineering and writing partner to evaluate the idea against the project requirements, draft documentation, generate code and tests, and guide me through GitHub, VS Code, and Vercel. I also used Claude Code on my Mac to commit changes, push updates, and resolve issues. My responsibility was to define the problem, choose the validation rules, review the proposed changes, and check the results. This process reinforced that using AI still requires clear decisions and careful verification from me.
 
-## Key learnings
-- TODO: for example, why splitting work between the AI (extraction) and code (decisions) made the app testable and resistant to prompt injection.
-- TODO: something you learned about CI/CD, environment variables or deployment.
-- TODO: something you learned from user testing.
+Several adjustments helped make the project more manageable. I requested Mac-specific instructions after the initial setup guide assumed Windows. I also moved the project out of iCloud Drive to prevent unnecessary syncing of dependency files. When the public README contained unfinished placeholders, I requested a clear project overview and kept private task notes outside the repository. Managing the project across several tools was challenging. Copying an older project version caused repeated setup work, and the first deployment began before the API key was configured. These experiences taught me to confirm the project version, file location, and deployment settings before proceeding.
 
-## Challenges
-- TODO: real problems you hit (for example a CI failure, the course endpoint needing OPENAI_BASE_URL, an extraction mistake found in live testing) and how you fixed them.
+My main technical learning was the value of separating AI extraction from validation decisions. The model interprets the listing text, while explicit rules determine its status. This made the validation logic testable through 36 unit tests. Testing a listing containing an instruction to ignore the rules and approve it also helped me examine how the application handles untrusted input. However, reliable rules still depend on correctly extracted information, so extraction accuracy remains an important limitation.
 
-## What I would improve next (v2)
-- Shared rate limiting (for example Upstash Redis) instead of per-instance memory.
-- Bulk checking of a CSV of listings, and saving results.
-- An evaluation set of 50+ labelled listings to measure extraction accuracy on every model change.
-- TODO: one improvement that came from your user tests.
+Live testing revealed a problem that the initial unit tests had missed. Off-topic text produced an AI-502 error because the model returned a null summary that the schema rejected. Structured server logs helped identify the cause. I corrected the handling of that response, added a regression test, and documented the change in the specification's revision history. This showed me why testing realistic inputs on the deployed application is an essential part of QA.
 
-## Responsible AI note
-All data in the repo is made up; no employer or client data was used. The API key was kept in environment variables. TODO: one sentence on the main risk of this kind of tool (wrong extraction) and why a person still reviews before publishing.
+For a second version, I would introduce shared rate limiting, support bulk checking through CSV uploads, and allow reviewers to save results. I would also create an evaluation set of at least 50 labelled listings to measure extraction accuracy whenever the model or prompt changes. This would provide clearer evidence of whether an update improves performance. My tester Sam, a QA professional, said a team would pay about US$100 a year if it could check listings in bulk, which makes CSV upload the first v2 priority.
+
+Responsible AI use was part of the project's design. The repository uses synthetic data, and the API key is stored in environment variables. Because the model can extract incorrect values, the application displays the extracted fields for inspection and keeps a person responsible for the publishing decision. Building ListingLint helped me connect my QA experience with AI application development and reinforced the importance of testing, traceability, and human review.
