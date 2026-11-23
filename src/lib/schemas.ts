@@ -42,15 +42,25 @@ export const ExtractionSchema = z.object({
   hours: z.number().nullable(),
   priceAmount: z.number().nullable(),
   priceCurrency: z.string().trim().max(8).nullable(),
-  priceOnRequest: z.boolean(),
+  // Models sometimes send null for non-listings; normalise so the Extraction type is unchanged.
+  priceOnRequest: z
+    .boolean()
+    .nullable()
+    .transform((v) => v ?? false),
   country: z.string().trim().max(80).nullable(),
   city: z.string().trim().max(80).nullable(),
   condition: z.enum(CONDITIONS).nullable(),
   serial: z.string().trim().max(80).nullable(),
-  buyerSummary: z.string().max(2000),
+  buyerSummary: z
+    .string()
+    .max(2000)
+    .nullable()
+    .transform((v) => v ?? ""),
   ambiguities: z
     .array(z.object({ field: z.string().max(40), note: z.string().max(300) }))
-    .max(10),
+    .max(10)
+    .nullable()
+    .transform((v) => v ?? []),
 });
 
 export type Extraction = z.infer<typeof ExtractionSchema>;

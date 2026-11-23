@@ -2,8 +2,9 @@ import { describe, expect, it } from "vitest";
 import { buildRequestBody, extractListing, mapHttpError, parseToolCall, readAiConfig, TOOL_NAME } from "../src/lib/ai";
 import { AppError } from "../src/lib/errors";
 import { RateLimiter } from "../src/lib/rate-limit";
+import { evaluateListing } from "../src/lib/rules";
 import { CheckRequestSchema } from "../src/lib/schemas";
-import { validExtraction } from "./fixtures";
+import { NOW, validExtraction } from "./fixtures";
 
 const completion = (args: unknown) => ({
   choices: [{ message: { tool_calls: [{ function: { name: TOOL_NAME, arguments: JSON.stringify(args) } }] } }],
@@ -44,6 +45,33 @@ describe("parseToolCall", () => {
       ),
     ).toBe("AI-502");
     expect(codeOf(() => parseToolCall(completion({ ...validExtraction(), year: "twenty" })))).toBe("AI-502");
+  });
+
+  it("accepts a not-a-listing reply with all-null fields and normalises them", () => {
+    const allNull = {
+      isEquipmentListing: false,
+      category: null,
+      make: null,
+      model: null,
+      year: null,
+      hours: null,
+      priceAmount: null,
+      priceCurrency: null,
+      priceOnRequest: null,
+      country: null,
+      city: null,
+      condition: null,
+      serial: null,
+      buyerSummary: null,
+      ambiguities: null,
+    };
+    const extraction = parseToolCall(completion(allNull));
+    expect(extraction.buyerSummary).toBe("");
+    expect(extraction.ambiguities).toEqual([]);
+    expect(extraction.priceOnRequest).toBe(false);
+    const result = evaluateListing(extraction, { now: NOW });
+    expect(result.status).toBe("not_a_listing");
+    expect(result.score).toBe(0);
   });
 });
 
