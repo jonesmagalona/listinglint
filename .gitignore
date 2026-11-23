@@ -19,3 +19,7 @@ next-env.d.ts.bak
 coverage/
 .vercel
 *.tsbuildinfo
+
+# private notes, never committed
+TODO.local.md
+*.local.md

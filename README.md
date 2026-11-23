@@ -4,9 +4,8 @@ AI-assisted quality checker for used-equipment marketplace listings.
 
 Paste a seller's messy listing (English, or mixed with Tagalog or Cebuano). An LLM extracts the make, model, year, hours, price and location through a forced tool call. Deterministic, unit-tested rules then check for missing fields, implausible numbers, unsupported currencies, out-of-range prices and duplicates, decide whether the listing is **Ready**, **Needs review** or **Blocked**, and draft the questions to send back to the seller.
 
-- **Live app:** TODO (paste your Vercel URL, e.g. https://listinglint-xxxx.vercel.app)
-- **Demo video (2 min):** TODO (paste link)
-- **Health check:** TODO (your URL)/api/health
+- **Live app:** https://listinglint.vercel.app
+- **Health check:** https://listinglint.vercel.app/api/health
 
 > Course project for the AIM Postgraduate Certificate in Generative AI and Agentic AI (Week 4, Graded Mini Project 4.2). All data in `data/` is made up.
 
@@ -32,7 +31,7 @@ Next.js 14 (App Router) · TypeScript · Tailwind CSS · zod · OpenAI-compatibl
 Requirements (macOS): Node.js 20 or later and Git, for example via Homebrew: `brew install node@22 git`.
 
 ```bash
-git clone https://github.com/<your-username>/listinglint.git
+git clone https://github.com/jonesmagalona/listinglint.git
 cd listinglint
 npm install
 cp .env.example .env.local
