@@ -29,7 +29,7 @@ Maps every item in "Week 4 – Graded Assignment 4.2: AI-Powered Web Application
 | spec.md | `spec.md` (inputs, outputs, AI behaviour, constraints and errors, acceptance criteria) | ✅ |
 | CLAUDE.md or agents.md | `CLAUDE.md` | ✅ |
 | .cursorrules | `.cursorrules` | ✅ |
-| Revise the spec after review | `spec.md` revision history: v0.2 AI review done; human review v0.3 | ✅ / 🟡 |
+| Revise the spec after review | `spec.md` revision history: v0.2 AI review and v0.3 live-test revision done; v0.4 human review by Paul (developer and QA professional) planned | ✅ / 🟡 |
 
 ## Phase 3: Build
 | Requirement | Evidence | Status |

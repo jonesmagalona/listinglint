@@ -23,7 +23,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 **Evidence that people actively try to solve it:**
 - Marketplaces already invest in workarounds: required-field forms, manual review queues and QA checklists (see Step 4).
 - Fraud warnings from the Better Business Bureau and the US Federal Trade Commission tell buyers to distrust below-market prices (see Step 3), which pushes marketplaces to screen listings.
-- **Author's domain experience:** TODO (evidence). In 3 to 5 sentences, describe in general terms what you have seen in marketplace QA and listing quality work: common listing errors, how they are caught today, and what they cost. Do not name employers, clients, internal tools or confidential figures. The repo is public.
+- **Author's domain experience:** From about 10 years of quality assurance work on online equipment listings, the most common problems are missing information, incorrect years, inconsistent units (such as hours versus kilometres), duplicate listings, pricing errors and mixed-language content. These are typically caught through manual QA reviews, comparison against the original source, validation checks and reports from users. The costs show up as rework, extra support effort, publishing delays and reduced buyer confidence.
 
 ## Step 2. Profile the Target Customer
 *Goal: a reachable, identifiable group has this problem badly enough to pay.*
@@ -52,7 +52,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 
 **How to read this:** these figures measure the value of equipment traded, not spending on listing-quality software. ListingLint's addressable market is a small slice of it: the marketplaces and dealers that publish listings online.
 
-**Bottom-up sizing (Assumption, to be tested):** TODO. Fill in once you have an estimate you can defend, for example: number of target marketplaces and dealer groups in the Philippines and Southeast Asia × listings reviewed per month × a price per check or per seat. Show each number's source or label it clearly as an assumption. Do not present an assumption as a fact.
+**Market benchmark and software opportunity:** As a placeholder benchmark, this report uses about US$130 billion for the global used construction equipment market in 2026, rounded from Mordor Intelligence's estimate of US$132.67 billion (https://www.mordorintelligence.com/industry-reports/used-construction-equipment-market). This measures the value of equipment sold, not spending on listing-quality software. Sizing the software opportunity (target marketplaces and dealers × listings reviewed per month × price) needs a separate estimate; the willingness-to-pay questions in the Step 6 cheap test are the first input to it.
 
 ## Step 4. Map the Competition
 *Goal: no existing solution fully solves the problem; there is a gap worth filling.*
@@ -76,7 +76,7 @@ On used-equipment marketplaces, sellers send listings as free text: emails, chat
 - **Built for mixed-language input,** such as English with Tagalog or Cebuano, where much of the market growth is (Step 3).
 - **Actionable output:** a title built in code, checks with severities, and a ready-to-send seller message containing only the questions that matter.
 
-**Why you:** TODO (evidence). Two or three sentences on your own fit, in general terms: for example your years in marketplace QA and technical project management, your knowledge of listing quality problems, and your languages (English, Tagalog, Cebuano). No employer names or confidential details.
+**Why you:** I bring about 10 years of quality assurance experience with online equipment listings, focused on data accuracy, consistency, finding defects and improving QA processes. I have seen these listing problems first-hand and know which ones cost buyers and reviewers the most. I also speak English, Tagalog and Cebuano, which helps with the mixed-language listings common in the Philippine market.
 
 **Why now:**
 - Small, inexpensive language models can now return reliable structured output through tool calling, which makes "messy text to clean fields" practical for small teams, not only large platforms.
