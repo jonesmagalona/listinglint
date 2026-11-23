@@ -1,0 +1,21 @@
+{
+  "_note": "Made-up sample reference data for a demo. Brand names are used only as manufacturer labels. Not taken from any company's systems.",
+  "makes": [
+    { "name": "Caterpillar", "aliases": ["cat", "caterpillar", "catepillar", "caterpiller"], "categories": ["excavator", "wheel_loader", "dozer", "skid_steer", "generator"] },
+    { "name": "Komatsu", "aliases": ["komatsu", "komatsu ltd", "komatzu"], "categories": ["excavator", "wheel_loader", "dozer", "forklift"] },
+    { "name": "John Deere", "aliases": ["john deere", "deere", "jd", "johndeere"], "categories": ["excavator", "wheel_loader", "dozer", "skid_steer", "tractor"] },
+    { "name": "Volvo", "aliases": ["volvo", "volvo ce"], "categories": ["excavator", "wheel_loader"] },
+    { "name": "Hitachi", "aliases": ["hitachi"], "categories": ["excavator", "wheel_loader"] },
+    { "name": "Kubota", "aliases": ["kubota"], "categories": ["excavator", "skid_steer", "tractor"] },
+    { "name": "Bobcat", "aliases": ["bobcat", "bob cat"], "categories": ["skid_steer", "excavator"] },
+    { "name": "Toyota", "aliases": ["toyota", "toyota material handling"], "categories": ["forklift"] },
+    { "name": "Hyster", "aliases": ["hyster"], "categories": ["forklift"] },
+    { "name": "Liebherr", "aliases": ["liebherr", "liebher"], "categories": ["excavator", "wheel_loader", "crane"] },
+    { "name": "Tadano", "aliases": ["tadano"], "categories": ["crane"] },
+    { "name": "Cummins", "aliases": ["cummins"], "categories": ["generator"] },
+    { "name": "Haas", "aliases": ["haas", "haas automation"], "categories": ["cnc_machining_center", "cnc_lathe"] },
+    { "name": "Mazak", "aliases": ["mazak", "yamazaki mazak"], "categories": ["cnc_machining_center", "cnc_lathe"] },
+    { "name": "DMG Mori", "aliases": ["dmg mori", "dmg", "mori seiki", "dmgmori"], "categories": ["cnc_machining_center", "cnc_lathe"] },
+    { "name": "Okuma", "aliases": ["okuma"], "categories": ["cnc_machining_center", "cnc_lathe"] }
+  ]
+}

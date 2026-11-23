@@ -1,0 +1,24 @@
+{
+  "_note": "Made-up sample price bands in USD for a demo. Not market data. Replace with a real, licensed source before any production use.",
+  "fxToUsd": {
+    "USD": 1,
+    "EUR": 1.08,
+    "GBP": 1.27,
+    "AUD": 0.66,
+    "CAD": 0.73,
+    "JPY": 0.0067,
+    "PHP": 0.017
+  },
+  "bands": {
+    "excavator": { "minUsd": 8000, "maxUsd": 450000 },
+    "wheel_loader": { "minUsd": 10000, "maxUsd": 400000 },
+    "dozer": { "minUsd": 10000, "maxUsd": 600000 },
+    "skid_steer": { "minUsd": 5000, "maxUsd": 90000 },
+    "forklift": { "minUsd": 2000, "maxUsd": 80000 },
+    "tractor": { "minUsd": 4000, "maxUsd": 350000 },
+    "crane": { "minUsd": 20000, "maxUsd": 1500000 },
+    "generator": { "minUsd": 1000, "maxUsd": 250000 },
+    "cnc_machining_center": { "minUsd": 5000, "maxUsd": 600000 },
+    "cnc_lathe": { "minUsd": 4000, "maxUsd": 450000 }
+  }
+}
