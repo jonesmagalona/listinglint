@@ -5,7 +5,7 @@
 **Body:**
 
 ## Problem
-The current rate limiter (`src/lib/rate-limit.ts`) keeps counts in memory, so on Vercel each serverless instance has its own counter and the limit is only a soft guard. Reviewers also asked (TODO: confirm from user tests) to check many listings at once.
+The current rate limiter (`src/lib/rate-limit.ts`) keeps counts in memory, so on Vercel each serverless instance has its own counter and the limit is only a soft guard. In the cheap test, a QA tester asked to check many listings at once and said a team would pay about US$100 per year for bulk checking (`docs/01-idea-validation.md`, Step 6).
 
 ## Proposal
 1. Replace the in-memory limiter with a shared store (for example Upstash Redis via `@upstash/ratelimit`), keeping the same `allow(key)` interface so the route does not change.

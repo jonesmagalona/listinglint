@@ -3,7 +3,7 @@
 **Author:** Christopher Jones Mante Magalona
 **Course:** AIM Postgraduate Certificate in Generative AI and Agentic AI, Week 4, Graded Mini Project 4.2
 **Framework:** Week 4A 7-Step Validation: (1) Define the Problem, (2) Profile the Target Customer, (3) Size the Market, (4) Map the Competition, (5) Define Your Edge, (6) Design a Cheap Test, (7) Stress-Test the Idea.
-**Status:** Draft. Sections marked **TODO (evidence)** must be completed with real, anonymised notes before submission. Lines marked **Assumption** are hypotheses to test, not findings.
+**Status:** Complete for the MVP. Cheap-test evidence (Step 6) comes from two testers, so it is an early signal, not proof. Lines marked **Assumption** are hypotheses to test, not findings.
 
 ---
 

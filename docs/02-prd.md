@@ -1,6 +1,6 @@
 # PRD: ListingLint (one page)
 
-**Owner:** Jones · **Version:** 1.0 (MVP) · **Status:** Built and deployed (TODO: confirm live URL)
+**Owner:** Jones · **Version:** 1.0 (MVP) · **Status:** Built and deployed (https://listinglint.vercel.app)
 
 > The PRD uses six components: (1) problem and goal, (2) target users, (3) features with acceptance criteria, (4) success metrics, (5) scope and non-goals, (6) constraints, risks and dependencies. If the course template names six different components, map these sections to it.
 
